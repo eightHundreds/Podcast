@@ -56,13 +56,14 @@ episodes:
     episode: 2
     season: 1
     episode_type: full
-    transcripts:
-      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.vtt"
-        type: "text/vtt"
-        language: "zh"
-      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.srt"
-        type: "application/x-subrip"
-        language: "zh"
+    # 转写完成后再取消注释，并把文件放到 docs/transcripts/
+    # transcripts:
+    #   - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.vtt"
+    #     type: "text/vtt"
+    #     language: "zh"
+    #   - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.srt"
+    #     type: "application/x-subrip"
+    #     language: "zh"
 
   - title: "第 3 集：数据模型背后的架构取舍"
     description: |
@@ -76,10 +77,10 @@ episodes:
     episode: 3
     season: 1
     episode_type: full
-    transcripts:
-      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.vtt"
-        type: "text/vtt"
-        language: "zh"
-      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.srt"
-        type: "application/x-subrip"
-        language: "zh"
+    # transcripts:
+    #   - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.vtt"
+    #     type: "text/vtt"
+    #     language: "zh"
+    #   - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.srt"
+    #     type: "application/x-subrip"
+    #     language: "zh"
