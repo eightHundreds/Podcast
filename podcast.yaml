@@ -1,0 +1,88 @@
+# 节目：《设计数据密集型应用》读书讨论系列
+# 音频：shows/设计数据密集型应用/audio/（本地；发布时上传 R2/S3）
+# 字幕：shows/设计数据密集型应用/transcripts/（mlx-whisper 生成）
+
+metadata:
+  title: "设计数据密集型应用"
+  description: |
+    围绕《Designing Data-Intensive Applications》（DDIA）的系列播客。
+    从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，
+    帮你把书里的原则接到真实系统设计决策上。
+  # 启用 GitHub Pages 后请改成真实地址
+  link: "https://YOUR_GITHUB_USER.github.io/Podcast/"
+  rss_feed_url: "https://YOUR_GITHUB_USER.github.io/Podcast/feed.xml"
+  language: "zh-cn"
+  author: "主持人"
+  email: "you@example.com"
+  image: "https://YOUR_GITHUB_USER.github.io/Podcast/cover.png"
+  category: "Technology"
+  explicit: false
+  copyright: "© 2026 设计数据密集型应用"
+  podcast_guid: "17ebeeff-5ba2-464b-a65e-f06ac2b1ad11"
+  podcast_locked: "no"
+
+# 发布到对象存储后改成公开前缀，例如：
+# https://audio.example.com/ddia/
+# 本地试听可先用 file 完整 URL 或先上传再生成 feed
+audio_base_url: "https://YOUR_CDN_DOMAIN/ddia/"
+
+episodes:
+  - title: "第 1 集：云原生分布式还是单机极简"
+    description: |
+      开篇讨论：面对数据密集型系统，何时该上云原生与分布式，何时单机极简反而更稳、更省、更好维护。
+      本集对应本地音频 ep01，适合作为 DDIA 系列的切入点。
+    publication_date: "2026-08-01T10:00:00+08:00"
+    file: "ep01-云原生分布式还是单机极简.m4a"
+    type: "audio/mp4"
+    duration: "00:21:20"
+    length: 41213416
+    episode: 1
+    season: 1
+    episode_type: full
+    transcripts:
+      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep01.vtt"
+        type: "text/vtt"
+        language: "zh"
+      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep01.srt"
+        type: "application/x-subrip"
+        language: "zh"
+
+  - title: "第 2 集：DDIA 架构设计核心权衡"
+    description: |
+      深入 DDIA 里反复出现的架构权衡：可靠性、可扩展性、可维护性如何互相牵制，
+      以及做系统设计时该如何显式列出取舍，而不是被口号带着走。
+    publication_date: "2026-08-01T11:00:00+08:00"
+    file: "ep02-DDIA架构设计核心权衡.m4a"
+    type: "audio/mp4"
+    duration: "00:23:57"
+    length: 46254678
+    episode: 2
+    season: 1
+    episode_type: full
+    transcripts:
+      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep02.vtt"
+        type: "text/vtt"
+        language: "zh"
+      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep02.srt"
+        type: "application/x-subrip"
+        language: "zh"
+
+  - title: "第 3 集：数据模型背后的架构取舍"
+    description: |
+      关系模型、文档模型、图模型……数据模型不只是「怎么存」，更是查询方式、演进成本与一致性边界的选择。
+      本集顺着 DDIA 的数据模型章节，谈模型选择如何反过来塑造系统架构。
+    publication_date: "2026-08-01T12:00:00+08:00"
+    file: "ep03-数据模型背后的架构取舍.m4a"
+    type: "audio/mp4"
+    duration: "00:24:25"
+    length: 47153714
+    episode: 3
+    season: 1
+    episode_type: full
+    transcripts:
+      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep03.vtt"
+        type: "text/vtt"
+        language: "zh"
+      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep03.srt"
+        type: "application/x-subrip"
+        language: "zh"

@@ -1,0 +1,63 @@
+name: Generate Podcast Feed
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "podcast.yaml"
+      - "scripts/**"
+      - "docs/**"
+      - ".github/workflows/generate-feed.yml"
+  pull_request:
+    paths:
+      - "podcast.yaml"
+      - "scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate config
+        run: python scripts/generate_feed.py --dry-run
+
+      - name: Generate feed.xml
+        run: python scripts/generate_feed.py -i podcast.yaml -o docs/feed.xml
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

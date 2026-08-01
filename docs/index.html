@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的播客</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f1115;
+      --fg: #e8eaed;
+      --muted: #9aa0a6;
+      --card: #1a1d24;
+      --accent: #8ab4f8;
+      --border: #2a2f3a;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7f9;
+        --fg: #202124;
+        --muted: #5f6368;
+        --card: #fff;
+        --accent: #1a73e8;
+        --border: #e0e3e8;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      max-width: 36rem;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+    h1 { margin: 0 0 .5rem; font-size: 1.75rem; letter-spacing: -.02em; }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    code, .feed {
+      display: block;
+      word-break: break-all;
+      background: color-mix(in srgb, var(--fg) 6%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .9rem;
+      color: var(--fg);
+      margin: 1rem 0 1.25rem;
+    }
+    a { color: var(--accent); text-underline-offset: 2px; }
+    ul { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+    li { margin: .35rem 0; }
+    .badge {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      border-radius: 999px;
+      padding: .2rem .6rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="badge">Podcast</div>
+    <h1>我的播客</h1>
+    <p>节目站点由 GitHub Pages 托管。音频放在对象存储（R2 / S3），本站只提供介绍页与 RSS。</p>
+    <p><strong>RSS Feed</strong>（提交给 Apple Podcasts / Spotify / 小宇宙）：</p>
+    <a class="feed" id="feed-link" href="./feed.xml">./feed.xml</a>
+    <ul>
+      <li>在仓库里编辑 <code style="display:inline;padding:.1rem .35rem">podcast.yaml</code> 添加新集</li>
+      <li>把 MP3 上传到 R2/S3，把公开 URL 写进 YAML</li>
+      <li>push 后 Actions 自动生成并发布 <code style="display:inline;padding:.1rem .35rem">feed.xml</code></li>
+    </ul>
+  </main>
+  <script>
+    const a = document.getElementById("feed-link");
+    a.textContent = new URL("feed.xml", location.href).href;
+    a.href = "feed.xml";
+  </script>
+</body>
+</html>

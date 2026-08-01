@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
+  <channel>
+    <title>我的播客</title>
+    <description>在这里写节目简介。支持多行。
+提交到 Apple Podcasts / Spotify / 小宇宙 时会用到。</description>
+    <link>https://YOUR_GITHUB_USER.github.io/Podcast/</link>
+    <language>zh-cn</language>
+    <generator>Podcast generate_feed.py</generator>
+    <lastBuildDate>Sat, 01 Aug 2026 13:49:09 +0000</lastBuildDate>
+    <copyright>© 2026 主持人名字</copyright>
+    <atom:link href="https://YOUR_GITHUB_USER.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
+    <itunes:author>主持人名字</itunes:author>
+    <itunes:summary>在这里写节目简介。支持多行。
+提交到 Apple Podcasts / Spotify / 小宇宙 时会用到。</itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://YOUR_GITHUB_USER.github.io/Podcast/cover.png" />
+    <image>
+      <url>https://YOUR_GITHUB_USER.github.io/Podcast/cover.png</url>
+      <title>我的播客</title>
+      <link>https://YOUR_GITHUB_USER.github.io/Podcast/</link>
+    </image>
+    <itunes:category>Technology</itunes:category>
+    <itunes:owner>
+      <itunes:name>主持人名字</itunes:name>
+      <itunes:email>you@example.com</itunes:email>
+    </itunes:owner>
+    <podcast:guid>17ebeeff-5ba2-464b-a65e-f06ac2b1ad11</podcast:guid>
+    <podcast:locked owner="you@example.com">no</podcast:locked>
+    <item>
+      <title>第 1 集：开场白</title>
+      <description>欢迎收听。本集介绍节目定位、更新节奏，以及你会听到什么。</description>
+      <content:encoded>欢迎收听。本集介绍节目定位、更新节奏，以及你会听到什么。</content:encoded>
+      <pubDate>Sat, 01 Aug 2026 02:00:00 +0000</pubDate>
+      <link>https://YOUR_GITHUB_USER.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://audio.example.com/podcast/ep001.mp3</guid>
+      <enclosure url="https://audio.example.com/podcast/ep001.mp3" length="12345678" type="audio/mpeg" />
+      <itunes:author>主持人名字</itunes:author>
+      <itunes:summary>欢迎收听。本集介绍节目定位、更新节奏，以及你会听到什么。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:12:34</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://YOUR_GITHUB_USER.github.io/Podcast/cover.png" />
+    </item>
+  </channel>
+</rss>
