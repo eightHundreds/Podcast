@@ -8,7 +8,7 @@
     <link>https://eighthundreds.github.io/Podcast/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Sat, 01 Aug 2026 15:30:19 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 15:37:26 +0000</lastBuildDate>
     <copyright>© 2026 设计数据密集型应用</copyright>
     <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>主持人</itunes:author>
@@ -25,10 +25,10 @@
     <itunes:category>Technology</itunes:category>
     <itunes:owner>
       <itunes:name>主持人</itunes:name>
-      <itunes:email>you@example.com</itunes:email>
+      <itunes:email>mingoing@outlook.com</itunes:email>
     </itunes:owner>
     <podcast:guid>17ebeeff-5ba2-464b-a65e-f06ac2b1ad11</podcast:guid>
-    <podcast:locked owner="you@example.com">no</podcast:locked>
+    <podcast:locked owner="mingoing@outlook.com">no</podcast:locked>
     <item>
       <title>第 3 集：数据模型背后的架构取舍</title>
       <description>关系模型、文档模型、图模型……数据模型不只是「怎么存」，更是查询方式、演进成本与一致性边界的选择。
