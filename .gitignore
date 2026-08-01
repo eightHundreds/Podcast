@@ -21,3 +21,4 @@ audio/
 .idea/
 .vscode/
 *.swp
+.wrangler/

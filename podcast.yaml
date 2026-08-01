@@ -1,6 +1,6 @@
 # 节目：《设计数据密集型应用》读书讨论系列
-# 音频：shows/设计数据密集型应用/audio/（本地；发布时上传 R2/S3）
-# 字幕：shows/设计数据密集型应用/transcripts/（mlx-whisper 生成）
+# 音频：R2 bucket podcast-audio（公开 r2.dev）
+# 字幕：shows/设计数据密集型应用/transcripts/（mlx-audio + MOSS-Transcribe-Diarize）
 
 metadata:
   title: "设计数据密集型应用"
@@ -8,23 +8,20 @@ metadata:
     围绕《Designing Data-Intensive Applications》（DDIA）的系列播客。
     从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，
     帮你把书里的原则接到真实系统设计决策上。
-  # 启用 GitHub Pages 后请改成真实地址
-  link: "https://YOUR_GITHUB_USER.github.io/Podcast/"
-  rss_feed_url: "https://YOUR_GITHUB_USER.github.io/Podcast/feed.xml"
+  link: "https://eighthundreds.github.io/Podcast/"
+  rss_feed_url: "https://eighthundreds.github.io/Podcast/feed.xml"
   language: "zh-cn"
   author: "主持人"
   email: "you@example.com"
-  image: "https://YOUR_GITHUB_USER.github.io/Podcast/cover.png"
+  image: "https://eighthundreds.github.io/Podcast/cover.png"
   category: "Technology"
   explicit: false
   copyright: "© 2026 设计数据密集型应用"
   podcast_guid: "17ebeeff-5ba2-464b-a65e-f06ac2b1ad11"
   podcast_locked: "no"
 
-# 发布到对象存储后改成公开前缀，例如：
-# https://audio.example.com/ddia/
-# 本地试听可先用 file 完整 URL 或先上传再生成 feed
-audio_base_url: "https://YOUR_CDN_DOMAIN/ddia/"
+# R2 公开前缀（bucket: podcast-audio，key 前缀 ddia/）
+audio_base_url: "https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/"
 
 episodes:
   - title: "第 1 集：云原生分布式还是单机极简"
@@ -40,10 +37,10 @@ episodes:
     season: 1
     episode_type: full
     transcripts:
-      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep01.vtt"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep01.vtt"
         type: "text/vtt"
         language: "zh"
-      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep01.srt"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep01.srt"
         type: "application/x-subrip"
         language: "zh"
 
@@ -60,10 +57,10 @@ episodes:
     season: 1
     episode_type: full
     transcripts:
-      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep02.vtt"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.vtt"
         type: "text/vtt"
         language: "zh"
-      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep02.srt"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.srt"
         type: "application/x-subrip"
         language: "zh"
 
@@ -80,9 +77,9 @@ episodes:
     season: 1
     episode_type: full
     transcripts:
-      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep03.vtt"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.vtt"
         type: "text/vtt"
         language: "zh"
-      - url: "https://YOUR_GITHUB_USER.github.io/Podcast/transcripts/ep03.srt"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.srt"
         type: "application/x-subrip"
         language: "zh"

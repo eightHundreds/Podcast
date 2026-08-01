@@ -1,48 +1,99 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
   <channel>
-    <title>我的播客</title>
-    <description>在这里写节目简介。支持多行。
-提交到 Apple Podcasts / Spotify / 小宇宙 时会用到。</description>
-    <link>https://YOUR_GITHUB_USER.github.io/Podcast/</link>
+    <title>设计数据密集型应用</title>
+    <description>围绕《Designing Data-Intensive Applications》（DDIA）的系列播客。
+从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，
+帮你把书里的原则接到真实系统设计决策上。</description>
+    <link>https://eighthundreds.github.io/Podcast/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Sat, 01 Aug 2026 13:49:09 +0000</lastBuildDate>
-    <copyright>© 2026 主持人名字</copyright>
-    <atom:link href="https://YOUR_GITHUB_USER.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
-    <itunes:author>主持人名字</itunes:author>
-    <itunes:summary>在这里写节目简介。支持多行。
-提交到 Apple Podcasts / Spotify / 小宇宙 时会用到。</itunes:summary>
+    <lastBuildDate>Sat, 01 Aug 2026 14:43:57 +0000</lastBuildDate>
+    <copyright>© 2026 设计数据密集型应用</copyright>
+    <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
+    <itunes:author>主持人</itunes:author>
+    <itunes:summary>围绕《Designing Data-Intensive Applications》（DDIA）的系列播客。
+从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，
+帮你把书里的原则接到真实系统设计决策上。</itunes:summary>
     <itunes:explicit>false</itunes:explicit>
-    <itunes:image href="https://YOUR_GITHUB_USER.github.io/Podcast/cover.png" />
+    <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
     <image>
-      <url>https://YOUR_GITHUB_USER.github.io/Podcast/cover.png</url>
-      <title>我的播客</title>
-      <link>https://YOUR_GITHUB_USER.github.io/Podcast/</link>
+      <url>https://eighthundreds.github.io/Podcast/cover.png</url>
+      <title>设计数据密集型应用</title>
+      <link>https://eighthundreds.github.io/Podcast/</link>
     </image>
     <itunes:category>Technology</itunes:category>
     <itunes:owner>
-      <itunes:name>主持人名字</itunes:name>
+      <itunes:name>主持人</itunes:name>
       <itunes:email>you@example.com</itunes:email>
     </itunes:owner>
     <podcast:guid>17ebeeff-5ba2-464b-a65e-f06ac2b1ad11</podcast:guid>
     <podcast:locked owner="you@example.com">no</podcast:locked>
     <item>
-      <title>第 1 集：开场白</title>
-      <description>欢迎收听。本集介绍节目定位、更新节奏，以及你会听到什么。</description>
-      <content:encoded>欢迎收听。本集介绍节目定位、更新节奏，以及你会听到什么。</content:encoded>
-      <pubDate>Sat, 01 Aug 2026 02:00:00 +0000</pubDate>
-      <link>https://YOUR_GITHUB_USER.github.io/Podcast/</link>
-      <guid isPermaLink="true">https://audio.example.com/podcast/ep001.mp3</guid>
-      <enclosure url="https://audio.example.com/podcast/ep001.mp3" length="12345678" type="audio/mpeg" />
-      <itunes:author>主持人名字</itunes:author>
-      <itunes:summary>欢迎收听。本集介绍节目定位、更新节奏，以及你会听到什么。</itunes:summary>
+      <title>第 3 集：数据模型背后的架构取舍</title>
+      <description>关系模型、文档模型、图模型……数据模型不只是「怎么存」，更是查询方式、演进成本与一致性边界的选择。
+本集顺着 DDIA 的数据模型章节，谈模型选择如何反过来塑造系统架构。</description>
+      <content:encoded>关系模型、文档模型、图模型……数据模型不只是「怎么存」，更是查询方式、演进成本与一致性边界的选择。&lt;br/&gt;
+本集顺着 DDIA 的数据模型章节，谈模型选择如何反过来塑造系统架构。</content:encoded>
+      <pubDate>Sat, 01 Aug 2026 04:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep03-数据模型背后的架构取舍.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep03-数据模型背后的架构取舍.m4a" length="47153714" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>关系模型、文档模型、图模型……数据模型不只是「怎么存」，更是查询方式、演进成本与一致性边界的选择。
+本集顺着 DDIA 的数据模型章节，谈模型选择如何反过来塑造系统架构。</itunes:summary>
       <itunes:explicit>false</itunes:explicit>
-      <itunes:duration>00:12:34</itunes:duration>
+      <itunes:duration>00:24:25</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep03.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep03.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 2 集：DDIA 架构设计核心权衡</title>
+      <description>深入 DDIA 里反复出现的架构权衡：可靠性、可扩展性、可维护性如何互相牵制，
+以及做系统设计时该如何显式列出取舍，而不是被口号带着走。</description>
+      <content:encoded>深入 DDIA 里反复出现的架构权衡：可靠性、可扩展性、可维护性如何互相牵制，&lt;br/&gt;
+以及做系统设计时该如何显式列出取舍，而不是被口号带着走。</content:encoded>
+      <pubDate>Sat, 01 Aug 2026 03:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep02-DDIA架构设计核心权衡.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep02-DDIA架构设计核心权衡.m4a" length="46254678" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>深入 DDIA 里反复出现的架构权衡：可靠性、可扩展性、可维护性如何互相牵制，
+以及做系统设计时该如何显式列出取舍，而不是被口号带着走。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:23:57</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep02.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep02.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 1 集：云原生分布式还是单机极简</title>
+      <description>开篇讨论：面对数据密集型系统，何时该上云原生与分布式，何时单机极简反而更稳、更省、更好维护。
+本集对应本地音频 ep01，适合作为 DDIA 系列的切入点。</description>
+      <content:encoded>开篇讨论：面对数据密集型系统，何时该上云原生与分布式，何时单机极简反而更稳、更省、更好维护。&lt;br/&gt;
+本集对应本地音频 ep01，适合作为 DDIA 系列的切入点。</content:encoded>
+      <pubDate>Sat, 01 Aug 2026 02:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep01-云原生分布式还是单机极简.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep01-云原生分布式还是单机极简.m4a" length="41213416" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>开篇讨论：面对数据密集型系统，何时该上云原生与分布式，何时单机极简反而更稳、更省、更好维护。
+本集对应本地音频 ep01，适合作为 DDIA 系列的切入点。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:21:20</itunes:duration>
       <itunes:episode>1</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://YOUR_GITHUB_USER.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep01.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep01.srt" type="application/x-subrip" language="zh" />
     </item>
   </channel>
 </rss>
