@@ -1,22 +1,23 @@
-
+.venv/
+venv/
 __pycache__/
-!.env.example
-!docs/**
+*.py[cod]
+.Python
 .DS_Store
+*.log
 .env
 .env.*
-.idea/
-.Python
-.venv/
-.vscode/
-*.flac
-*.log
-*.m4a
-*.mp3
-*.py[cod]
-*.swp
-*.wav
+!.env.example
+
 # 本地音频（请上传到 R2/S3，不要提交大文件）
-# IDE
 audio/
-venv/
+*.mp3
+*.m4a
+*.wav
+*.flac
+!docs/**
+
+# IDE
+.idea/
+.vscode/
+*.swp
