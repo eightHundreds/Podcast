@@ -36,6 +36,7 @@ episodes:
     episode: 1
     season: 1
     episode_type: full
+    image: "https://eighthundreds.github.io/Podcast/covers/ep01.png"
     transcripts:
       - url: "https://eighthundreds.github.io/Podcast/transcripts/ep01.vtt"
         type: "text/vtt"
@@ -56,6 +57,7 @@ episodes:
     episode: 2
     season: 1
     episode_type: full
+    image: "https://eighthundreds.github.io/Podcast/covers/ep02.png"
     # 转写完成后再取消注释，并把文件放到 docs/transcripts/
     # transcripts:
     #   - url: "https://eighthundreds.github.io/Podcast/transcripts/ep02.vtt"
@@ -77,6 +79,7 @@ episodes:
     episode: 3
     season: 1
     episode_type: full
+    image: "https://eighthundreds.github.io/Podcast/covers/ep03.png"
     # transcripts:
     #   - url: "https://eighthundreds.github.io/Podcast/transcripts/ep03.vtt"
     #     type: "text/vtt"
