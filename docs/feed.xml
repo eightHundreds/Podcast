@@ -8,7 +8,7 @@
     <link>https://eighthundreds.github.io/Podcast/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Sat, 01 Aug 2026 15:09:38 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 15:30:19 +0000</lastBuildDate>
     <copyright>© 2026 设计数据密集型应用</copyright>
     <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>主持人</itunes:author>
@@ -48,6 +48,8 @@
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep03.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep03.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep03.srt" type="application/x-subrip" language="zh" />
     </item>
     <item>
       <title>第 2 集：DDIA 架构设计核心权衡</title>
@@ -68,6 +70,8 @@
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep02.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep02.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep02.srt" type="application/x-subrip" language="zh" />
     </item>
     <item>
       <title>第 1 集：云原生分布式还是单机极简</title>
