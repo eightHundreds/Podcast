@@ -111,7 +111,7 @@ episodes:
   - title: "第 5 集：编码与演化"
     description: |
       数据怎么在编码格式之间安全演化？序列化陷阱、向前/向后兼容，以及跨语言数据交换的底层取舍。
-    publication_date: "2026-08-02T10:00:00+08:00"
+    publication_date: "2026-08-01T14:00:00+08:00"
     file: "ep05.m4a"
     type: "audio/mp4"
     duration: "00:20:22"
@@ -130,7 +130,7 @@ episodes:
   - title: "第 6 集：复制：让数据分身保持一致"
     description: |
       从日历同步的日常体验切入，拆解单主复制、多副本同步，以及数据分身如何避免「撕裂时空」。
-    publication_date: "2026-08-02T11:00:00+08:00"
+    publication_date: "2026-08-01T15:00:00+08:00"
     file: "ep06.m4a"
     type: "audio/mp4"
     duration: "00:23:28"
@@ -149,7 +149,7 @@ episodes:
   - title: "第 7 集：分片：切开数据世界的魔法水晶"
     description: |
       从网络游戏把世界切开谈起，解释分片如何支撑千万级并发，以及切分后如何查询与再平衡。
-    publication_date: "2026-08-02T12:00:00+08:00"
+    publication_date: "2026-08-01T16:00:00+08:00"
     file: "ep07.m4a"
     type: "audio/mp4"
     duration: "00:16:07"
@@ -168,7 +168,7 @@ episodes:
   - title: "第 8 集：事务：断电也要钱货两清"
     description: |
       用「挖掘机铲断电源」的经典场景，拆穿 ACID 营销滤镜，看数据库如何伪装出完美一致性。
-    publication_date: "2026-08-02T13:00:00+08:00"
+    publication_date: "2026-08-01T17:00:00+08:00"
     file: "ep08.m4a"
     type: "audio/mp4"
     duration: "00:26:22"
@@ -187,7 +187,7 @@ episodes:
   - title: "第 9 集：分布式系统的麻烦"
     description: |
       卡车撞穿机房、宇宙射线翻转比特……单机确定世界之外，分布式系统充满故障、延迟与谎言。
-    publication_date: "2026-08-02T14:00:00+08:00"
+    publication_date: "2026-08-01T18:00:00+08:00"
     file: "ep09.m4a"
     type: "audio/mp4"
     duration: "00:15:14"
@@ -206,7 +206,7 @@ episodes:
   - title: "第 10 集：一致性与共识"
     description: |
       特价机票扣款成功却提示售罄：多机如何对「现实」达成一致？走进一致性模型与共识算法。
-    publication_date: "2026-08-02T15:00:00+08:00"
+    publication_date: "2026-08-01T19:00:00+08:00"
     file: "ep10.m4a"
     type: "audio/mp4"
     duration: "00:21:53"
@@ -225,7 +225,7 @@ episodes:
   - title: "第 11 集：批处理：派生数据与时间旅行"
     description: |
       推荐、年终报告背后的慢巨手——不可变输入、派生输出，以及批处理赋予系统的可重放能力。
-    publication_date: "2026-08-02T16:00:00+08:00"
+    publication_date: "2026-08-01T20:00:00+08:00"
     file: "ep11.m4a"
     type: "audio/mp4"
     duration: "00:28:00"
@@ -244,7 +244,7 @@ episodes:
   - title: "第 12 集：流处理：奔流不息的数据之河"
     description: |
       数据不是静止的湖泊而是江河：消息传递、背压与流处理如何在流动中捕捉并塑造实时世界。
-    publication_date: "2026-08-02T17:00:00+08:00"
+    publication_date: "2026-08-01T21:00:00+08:00"
     file: "ep12.m4a"
     type: "audio/mp4"
     duration: "00:24:49"
@@ -263,7 +263,7 @@ episodes:
   - title: "第 13 集：系统必须出海：综合架构权衡"
     description: |
       抢票时只扣一次钱的背后：没有完美系统，只有风险与取舍；把前面章节串成可落地的架构判断。
-    publication_date: "2026-08-02T18:00:00+08:00"
+    publication_date: "2026-08-01T22:00:00+08:00"
     file: "ep13.m4a"
     type: "audio/mp4"
     duration: "00:27:41"
@@ -282,7 +282,7 @@ episodes:
   - title: "第 14 集：算法决策与数据伦理"
     description: |
       房贷秒拒、预测犯罪……当数据系统决定人生，DDIA 终章追问：更强的系统会把世界变成什么样。
-    publication_date: "2026-08-02T19:00:00+08:00"
+    publication_date: "2026-08-01T23:00:00+08:00"
     file: "ep14.m4a"
     type: "audio/mp4"
     duration: "00:21:20"
