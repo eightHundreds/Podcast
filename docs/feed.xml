@@ -8,7 +8,7 @@
     <link>https://eighthundreds.github.io/Podcast/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Sun, 02 Aug 2026 02:17:16 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 02:38:06 +0000</lastBuildDate>
     <copyright>© 2026 设计数据密集型应用</copyright>
     <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>主持人</itunes:author>
@@ -218,6 +218,28 @@
       <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep05.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep05.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 4 集：软件逻辑战胜物理混乱</title>
+      <description>闰秒拖垮半个互联网：软件如何用数据模型与架构，在硬件故障、
+网络延迟与时间错乱的物理混乱中，硬生生撑起丝滑体验。</description>
+      <content:encoded>闰秒拖垮半个互联网：软件如何用数据模型与架构，在硬件故障、&lt;br/&gt;
+网络延迟与时间错乱的物理混乱中，硬生生撑起丝滑体验。</content:encoded>
+      <pubDate>Sat, 01 Aug 2026 05:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep04.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep04.m4a" length="49076540" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>闰秒拖垮半个互联网：软件如何用数据模型与架构，在硬件故障、
+网络延迟与时间错乱的物理混乱中，硬生生撑起丝滑体验。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:25:24</itunes:duration>
+      <itunes:episode>4</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep04.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep04.srt" type="application/x-subrip" language="zh" />
     </item>
     <item>
       <title>第 3 集：数据模型背后的架构取舍</title>

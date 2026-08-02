@@ -87,6 +87,27 @@ episodes:
         type: "application/x-subrip"
         language: "zh"
 
+
+  - title: "第 4 集：软件逻辑战胜物理混乱"
+    description: |
+      闰秒拖垮半个互联网：软件如何用数据模型与架构，在硬件故障、
+      网络延迟与时间错乱的物理混乱中，硬生生撑起丝滑体验。
+    publication_date: "2026-08-01T13:00:00+08:00"
+    file: "ep04.m4a"
+    type: "audio/mp4"
+    duration: "00:25:24"
+    length: 49076540
+    episode: 4
+    season: 1
+    episode_type: full
+    transcripts:
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep04.vtt"
+        type: "text/vtt"
+        language: "zh"
+      - url: "https://eighthundreds.github.io/Podcast/transcripts/ep04.srt"
+        type: "application/x-subrip"
+        language: "zh"
+
   - title: "第 5 集：编码与演化"
     description: |
       数据怎么在编码格式之间安全演化？序列化陷阱、向前/向后兼容，以及跨语言数据交换的底层取舍。
