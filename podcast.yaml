@@ -88,15 +88,15 @@ episodes:
         language: "zh"
 
 
-  - title: "第 4 集：软件逻辑战胜物理混乱"
+  - title: "第 4 集：存储与检索：B 树、LSM 与索引"
     description: |
-      闰秒拖垮半个互联网：软件如何用数据模型与架构，在硬件故障、
-      网络延迟与时间错乱的物理混乱中，硬生生撑起丝滑体验。
+      从追加日志到 B 树与 LSM：索引如何让数据库在海量数据里瞬间找到记录，
+      以及行存 / 列存、OLTP / OLAP 与向量检索背后的读写权衡。
     publication_date: "2026-08-01T13:00:00+08:00"
     file: "ep04.m4a"
     type: "audio/mp4"
-    duration: "00:25:24"
-    length: 49076540
+    duration: "00:24:11"
+    length: 46701639
     episode: 4
     season: 1
     episode_type: full
