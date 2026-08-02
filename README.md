@@ -29,7 +29,7 @@
 | 14 | [算法决策与数据伦理](docs/transcripts/ep14.txt) | 21:20 | 房贷秒拒、预测犯罪……当数据系统决定人生，终章追问系统把世界变成什么样。 |
 
 字幕（VTT / SRT / 纯文本）见 [docs/transcripts/](docs/transcripts/)。  
-节目封面见 [docs/cover.png](docs/cover.png)；单集封面见 [docs/covers/](docs/covers/)（目前 ep01–ep03）。
+节目封面见 [docs/cover.png](docs/cover.png)；单集封面见 [docs/covers/](docs/covers/)（ep01–ep14）。
 
 ## 关于
 

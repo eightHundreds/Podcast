@@ -8,7 +8,7 @@
     <link>https://eighthundreds.github.io/Podcast/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Sun, 02 Aug 2026 02:42:17 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 02:45:08 +0000</lastBuildDate>
     <copyright>© 2026 设计数据密集型应用</copyright>
     <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>主持人</itunes:author>
@@ -44,7 +44,7 @@
       <itunes:episode>14</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep14.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep14.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep14.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -63,7 +63,7 @@
       <itunes:episode>13</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep13.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep13.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep13.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -82,7 +82,7 @@
       <itunes:episode>12</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep12.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep12.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep12.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -101,7 +101,7 @@
       <itunes:episode>11</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep11.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep11.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep11.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -120,7 +120,7 @@
       <itunes:episode>10</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep10.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep10.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep10.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -139,7 +139,7 @@
       <itunes:episode>9</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep09.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep09.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep09.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -158,7 +158,7 @@
       <itunes:episode>8</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep08.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep08.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep08.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -177,7 +177,7 @@
       <itunes:episode>7</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep07.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep07.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep07.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -196,7 +196,7 @@
       <itunes:episode>6</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep06.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep06.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep06.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -215,7 +215,7 @@
       <itunes:episode>5</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep05.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep05.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep05.srt" type="application/x-subrip" language="zh" />
     </item>
@@ -237,7 +237,7 @@
       <itunes:episode>4</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <itunes:image href="https://eighthundreds.github.io/Podcast/covers/ep04.png" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep04.vtt" type="text/vtt" language="zh" />
       <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep04.srt" type="application/x-subrip" language="zh" />
     </item>
