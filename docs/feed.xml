@@ -8,7 +8,7 @@
     <link>https://eighthundreds.github.io/Podcast/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Sat, 01 Aug 2026 15:37:26 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 02:17:16 +0000</lastBuildDate>
     <copyright>© 2026 设计数据密集型应用</copyright>
     <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>主持人</itunes:author>
@@ -29,6 +29,196 @@
     </itunes:owner>
     <podcast:guid>17ebeeff-5ba2-464b-a65e-f06ac2b1ad11</podcast:guid>
     <podcast:locked owner="mingoing@outlook.com">no</podcast:locked>
+    <item>
+      <title>第 14 集：算法决策与数据伦理</title>
+      <description>房贷秒拒、预测犯罪……当数据系统决定人生，DDIA 终章追问：更强的系统会把世界变成什么样。</description>
+      <content:encoded>房贷秒拒、预测犯罪……当数据系统决定人生，DDIA 终章追问：更强的系统会把世界变成什么样。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 11:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep14.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep14.m4a" length="41213416" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>房贷秒拒、预测犯罪……当数据系统决定人生，DDIA 终章追问：更强的系统会把世界变成什么样。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:21:20</itunes:duration>
+      <itunes:episode>14</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep14.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep14.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 13 集：系统必须出海：综合架构权衡</title>
+      <description>抢票时只扣一次钱的背后：没有完美系统，只有风险与取舍；把前面章节串成可落地的架构判断。</description>
+      <content:encoded>抢票时只扣一次钱的背后：没有完美系统，只有风险与取舍；把前面章节串成可落地的架构判断。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 10:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep13.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep13.m4a" length="53488680" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>抢票时只扣一次钱的背后：没有完美系统，只有风险与取舍；把前面章节串成可落地的架构判断。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:27:41</itunes:duration>
+      <itunes:episode>13</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep13.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep13.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 12 集：流处理：奔流不息的数据之河</title>
+      <description>数据不是静止的湖泊而是江河：消息传递、背压与流处理如何在流动中捕捉并塑造实时世界。</description>
+      <content:encoded>数据不是静止的湖泊而是江河：消息传递、背压与流处理如何在流动中捕捉并塑造实时世界。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 09:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep12.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep12.m4a" length="47941440" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>数据不是静止的湖泊而是江河：消息传递、背压与流处理如何在流动中捕捉并塑造实时世界。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:24:49</itunes:duration>
+      <itunes:episode>12</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep12.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep12.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 11 集：批处理：派生数据与时间旅行</title>
+      <description>推荐、年终报告背后的慢巨手——不可变输入、派生输出，以及批处理赋予系统的可重放能力。</description>
+      <content:encoded>推荐、年终报告背后的慢巨手——不可变输入、派生输出，以及批处理赋予系统的可重放能力。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 08:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep11.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep11.m4a" length="54075337" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>推荐、年终报告背后的慢巨手——不可变输入、派生输出，以及批处理赋予系统的可重放能力。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:28:00</itunes:duration>
+      <itunes:episode>11</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep11.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep11.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 10 集：一致性与共识</title>
+      <description>特价机票扣款成功却提示售罄：多机如何对「现实」达成一致？走进一致性模型与共识算法。</description>
+      <content:encoded>特价机票扣款成功却提示售罄：多机如何对「现实」达成一致？走进一致性模型与共识算法。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 07:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep10.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep10.m4a" length="42260365" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>特价机票扣款成功却提示售罄：多机如何对「现实」达成一致？走进一致性模型与共识算法。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:21:53</itunes:duration>
+      <itunes:episode>10</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep10.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep10.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 9 集：分布式系统的麻烦</title>
+      <description>卡车撞穿机房、宇宙射线翻转比特……单机确定世界之外，分布式系统充满故障、延迟与谎言。</description>
+      <content:encoded>卡车撞穿机房、宇宙射线翻转比特……单机确定世界之外，分布式系统充满故障、延迟与谎言。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 06:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep09.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep09.m4a" length="29439532" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>卡车撞穿机房、宇宙射线翻转比特……单机确定世界之外，分布式系统充满故障、延迟与谎言。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:15:14</itunes:duration>
+      <itunes:episode>9</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep09.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep09.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 8 集：事务：断电也要钱货两清</title>
+      <description>用「挖掘机铲断电源」的经典场景，拆穿 ACID 营销滤镜，看数据库如何伪装出完美一致性。</description>
+      <content:encoded>用「挖掘机铲断电源」的经典场景，拆穿 ACID 营销滤镜，看数据库如何伪装出完美一致性。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 05:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep08.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep08.m4a" length="50934374" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>用「挖掘机铲断电源」的经典场景，拆穿 ACID 营销滤镜，看数据库如何伪装出完美一致性。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:26:22</itunes:duration>
+      <itunes:episode>8</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep08.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep08.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 7 集：分片：切开数据世界的魔法水晶</title>
+      <description>从网络游戏把世界切开谈起，解释分片如何支撑千万级并发，以及切分后如何查询与再平衡。</description>
+      <content:encoded>从网络游戏把世界切开谈起，解释分片如何支撑千万级并发，以及切分后如何查询与再平衡。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 04:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep07.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep07.m4a" length="31137384" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>从网络游戏把世界切开谈起，解释分片如何支撑千万级并发，以及切分后如何查询与再平衡。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:16:07</itunes:duration>
+      <itunes:episode>7</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep07.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep07.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 6 集：复制：让数据分身保持一致</title>
+      <description>从日历同步的日常体验切入，拆解单主复制、多副本同步，以及数据分身如何避免「撕裂时空」。</description>
+      <content:encoded>从日历同步的日常体验切入，拆解单主复制、多副本同步，以及数据分身如何避免「撕裂时空」。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 03:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep06.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep06.m4a" length="45340818" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>从日历同步的日常体验切入，拆解单主复制、多副本同步，以及数据分身如何避免「撕裂时空」。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:23:28</itunes:duration>
+      <itunes:episode>6</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep06.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep06.srt" type="application/x-subrip" language="zh" />
+    </item>
+    <item>
+      <title>第 5 集：编码与演化</title>
+      <description>数据怎么在编码格式之间安全演化？序列化陷阱、向前/向后兼容，以及跨语言数据交换的底层取舍。</description>
+      <content:encoded>数据怎么在编码格式之间安全演化？序列化陷阱、向前/向后兼容，以及跨语言数据交换的底层取舍。</content:encoded>
+      <pubDate>Sun, 02 Aug 2026 02:00:00 +0000</pubDate>
+      <link>https://eighthundreds.github.io/Podcast/</link>
+      <guid isPermaLink="true">https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep05.m4a</guid>
+      <enclosure url="https://pub-edd528b1d9f44719ab0fc169d2efa864.r2.dev/ddia/ep05.m4a" length="39342883" type="audio/mp4" />
+      <itunes:author>主持人</itunes:author>
+      <itunes:summary>数据怎么在编码格式之间安全演化？序列化陷阱、向前/向后兼容，以及跨语言数据交换的底层取舍。</itunes:summary>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:duration>00:20:22</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://eighthundreds.github.io/Podcast/cover.png" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep05.vtt" type="text/vtt" language="zh" />
+      <podcast:transcript url="https://eighthundreds.github.io/Podcast/transcripts/ep05.srt" type="application/x-subrip" language="zh" />
+    </item>
     <item>
       <title>第 3 集：数据模型背后的架构取舍</title>
       <description>关系模型、文档模型、图模型……数据模型不只是「怎么存」，更是查询方式、演进成本与一致性边界的选择。
