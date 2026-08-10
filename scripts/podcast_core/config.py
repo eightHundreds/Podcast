@@ -62,10 +62,11 @@ def load_shows_index(path: Path) -> dict[str, Any]:
 
 def resolve_show_paths(repo_root: Path, show: dict[str, Any]) -> dict[str, Path]:
     """Resolve absolute paths for a show entry from shows.yaml."""
+    publish = (repo_root / str(show["publish_dir"])).resolve()
     return {
         "config": (repo_root / str(show["config"])).resolve(),
-        "publish_dir": (repo_root / str(show["publish_dir"])).resolve(),
-        "legacy_feed": (repo_root / "docs" / "feed.xml").resolve(),
+        "publish_dir": publish,
+        "feed": publish / "feed.xml",
     }
 
 

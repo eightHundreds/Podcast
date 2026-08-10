@@ -13,8 +13,8 @@
 | 本地素材 | `shows/<节目名>/` | 源音频、转写稿等 |
 
 - **在线收听：** `docs/index.html`（枢纽）→ `docs/<slug>/`（播放器）  
-- **RSS：** 每节目 `docs/<slug>/feed.xml`；DDIA 额外兼容 `docs/feed.xml`  
-- 对外 RSS 形态示例：`https://<用户名>.github.io/<仓库名>/feed.xml`
+- **RSS：** 每节目独立 `docs/<slug>/feed.xml`  
+- 对外 RSS 形态：`https://<用户名>.github.io/<仓库名>/<slug>/feed.xml`
 
 ## 目录
 
@@ -24,12 +24,11 @@ requirements.txt
 docs/                         # Pages 站点根
   index.html                  # 枢纽：列出全部节目
   shows.json                  # 枢纽数据
-  feed.xml                    # DDIA 兼容 RSS（旧订阅地址）
-  cover.png / covers / transcripts/   # DDIA 发布资源（URL 已在配置中）
-  ddia/
+  cover.png / covers / transcripts/   # 发布资源（URL 已在配置中）
+  ddia/                       # 示例节目（slug）
     index.html                # 节目播放页
     episodes.json
-    feed.xml
+    feed.xml                  # 该节目 RSS
   assets/
     player-core.js            # 纯逻辑（可 Node require 测）
     player.js / player.css / site.css
@@ -67,7 +66,7 @@ python -m pytest tests/ -q
 ```bash
 python scripts/generate_feed.py \
   -i shows/设计数据密集型应用/podcast.yaml \
-  -o docs/feed.xml --include-future
+  -o docs/ddia/feed.xml --include-future
 ```
 
 本地预览 Pages：
@@ -85,8 +84,6 @@ python -m http.server 8765 --directory docs
 
 - `site.base_url`：GitHub Pages 根 URL  
 - `shows[]`：`id`、`slug`、`config`、`publish_dir`  
-- `legacy_root_feed: true`：额外写出 `docs/feed.xml`（保持旧订阅）
-
 ### `shows/<节目>/podcast.yaml`
 
 1. `metadata`：标题、简介、作者、邮箱、封面（https 绝对 URL）  

@@ -8,9 +8,9 @@
     <link>https://eighthundreds.github.io/Podcast/ddia/</link>
     <language>zh-cn</language>
     <generator>Podcast generate_feed.py</generator>
-    <lastBuildDate>Mon, 10 Aug 2026 13:45:06 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 14:40:03 +0000</lastBuildDate>
     <copyright>© 2026 设计数据密集型应用</copyright>
-    <atom:link href="https://eighthundreds.github.io/Podcast/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://eighthundreds.github.io/Podcast/ddia/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>主持人</itunes:author>
     <itunes:summary>围绕《Designing Data-Intensive Applications》（DDIA）的系列播客。
 从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，

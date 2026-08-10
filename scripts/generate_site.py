@@ -222,7 +222,7 @@ def write_show_page(show: dict, config: dict, episodes: list[dict]) -> Path:
 
     meta = config.get("metadata") or {}
     title = str(show.get("title") or meta.get("title") or show["id"])
-    feed_href = "../feed.xml" if show.get("legacy_root_feed") else "./feed.xml"
+    feed_href = "./feed.xml"
     image = str(meta.get("image") or "")
     desc = str(meta.get("description") or show.get("blurb") or "").strip()
     desc_ui = desc  # full prose on show page

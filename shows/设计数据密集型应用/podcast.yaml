@@ -9,7 +9,7 @@ metadata:
     从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，
     帮你把书里的原则接到真实系统设计决策上。
   link: "https://eighthundreds.github.io/Podcast/ddia/"
-  rss_feed_url: "https://eighthundreds.github.io/Podcast/feed.xml"
+  rss_feed_url: "https://eighthundreds.github.io/Podcast/ddia/feed.xml"
   language: "zh-cn"
   author: "主持人"
   email: "mingoing@outlook.com"

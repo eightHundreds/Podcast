@@ -78,7 +78,7 @@ def shows_catalog(
         meta = cfg.get("metadata") or {}
         eps = cfg.get("episodes") or []
         page_path = f"{slug}/"
-        feed_path = "feed.xml" if show.get("legacy_root_feed") else f"{slug}/feed.xml"
+        feed_path = f"{slug}/feed.xml"
         catalog.append(
             {
                 "id": sid,

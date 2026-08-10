@@ -46,11 +46,14 @@ def test_episodes_json_has_audio():
     assert any(e.get("transcriptUrl") for e in eps)
 
 
-def test_legacy_feed_present():
-    feed = (DOCS / "feed.xml").read_text(encoding="utf-8")
+def test_show_feed_present():
+    feed = (DOCS / "ddia" / "feed.xml").read_text(encoding="utf-8")
     assert "<rss" in feed
     assert "<enclosure" in feed
     assert "设计数据密集型应用" in feed
+    assert "ddia/feed.xml" in feed or "eighthundreds.github.io/Podcast/ddia" in feed
+    # per-show feeds only — no root feed.xml
+    assert not (DOCS / "feed.xml").exists()
 
 
 def test_shows_yaml_and_config_paths():

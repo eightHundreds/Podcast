@@ -3,7 +3,7 @@
 本节目基于《Designing Data-Intensive Applications》(DDIA) 的讨论素材目录。
 
 - **在线播放：** [GitHub Pages · ddia](https://eighthundreds.github.io/Podcast/ddia/)
-- **RSS：** [feed.xml](https://eighthundreds.github.io/Podcast/feed.xml)（兼容根路径）
+- **RSS：** [ddia/feed.xml](https://eighthundreds.github.io/Podcast/ddia/feed.xml)
 - **节目配置：** [`podcast.yaml`](podcast.yaml)
 - **平台索引：** 根目录 [`shows.yaml`](../../shows.yaml)
 

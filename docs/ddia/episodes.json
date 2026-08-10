@@ -5,8 +5,8 @@
     "title": "设计数据密集型应用",
     "description": "围绕《Designing Data-Intensive Applications》（DDIA）的系列播客。\n从「云原生分布式 vs 单机极简」谈起，梳理架构权衡、数据模型与存储选型背后的取舍逻辑，\n帮你把书里的原则接到真实系统设计决策上。",
     "image": "https://eighthundreds.github.io/Podcast/cover.png",
-    "feedUrl": "https://eighthundreds.github.io/Podcast/feed.xml",
-    "feedPath": "../feed.xml",
+    "feedUrl": "https://eighthundreds.github.io/Podcast/ddia/feed.xml",
+    "feedPath": "./feed.xml",
     "author": "主持人"
   },
   "episodes": [

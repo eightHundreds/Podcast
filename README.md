@@ -7,7 +7,7 @@
 
 - **节目枢纽：** [eighthundreds.github.io/Podcast](https://eighthundreds.github.io/Podcast/)
 - **DDIA 节目页（可播放）：** […/ddia/](https://eighthundreds.github.io/Podcast/ddia/)
-- **DDIA RSS（兼容旧地址）：** [feed.xml](https://eighthundreds.github.io/Podcast/feed.xml)
+- **DDIA RSS：** [ddia/feed.xml](https://eighthundreds.github.io/Podcast/ddia/feed.xml)
 
 播放器支持：播放/暂停、拖拽进度、倍速、±15/30 秒、分集切换、进度记忆、字幕点击跳转。
 
@@ -15,7 +15,7 @@
 
 | 节目 | 书目 | 集数 | 在线听 | RSS |
 |------|------|------|--------|-----|
-| [设计数据密集型应用](shows/设计数据密集型应用/) | *Designing Data-Intensive Applications* | 14 | [播放页](https://eighthundreds.github.io/Podcast/ddia/) | [feed.xml](https://eighthundreds.github.io/Podcast/feed.xml) |
+| [设计数据密集型应用](shows/设计数据密集型应用/) | *Designing Data-Intensive Applications* | 14 | [播放页](https://eighthundreds.github.io/Podcast/ddia/) | [ddia/feed.xml](https://eighthundreds.github.io/Podcast/ddia/feed.xml) |
 
 ### 设计数据密集型应用 · 分集
 
@@ -56,8 +56,7 @@ shows/<节目>/
   audio/  transcripts/ …
 docs/                      # GitHub Pages 根
   index.html               # 枢纽页
-  feed.xml                 # DDIA 兼容 RSS
-  ddia/                    # 节目页 + episodes.json + feed
+  ddia/                    # 节目页 + episodes.json + feed.xml
   assets/                  # 播放器 JS/CSS
 scripts/
   generate_all.py          # 一键生成 feed + 站点
