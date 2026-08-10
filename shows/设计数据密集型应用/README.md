@@ -1,7 +1,11 @@
 # 设计数据密集型应用
 
-本节目基于《Designing Data-Intensive Applications》(DDIA) 的讨论素材目录。  
-节目介绍与收听入口见仓库根目录 [README.md](../../README.md)。
+本节目基于《Designing Data-Intensive Applications》(DDIA) 的讨论素材目录。
+
+- **在线播放：** [GitHub Pages · ddia](https://eighthundreds.github.io/Podcast/ddia/)
+- **RSS：** [feed.xml](https://eighthundreds.github.io/Podcast/feed.xml)（兼容根路径）
+- **节目配置：** [`podcast.yaml`](podcast.yaml)
+- **平台索引：** 根目录 [`shows.yaml`](../../shows.yaml)
 
 ## 分集
 
@@ -22,12 +26,13 @@
 | 13 | 系统必须出海：综合架构权衡 | 27:41 | `audio/ep13.m4a` |
 | 14 | 算法决策与数据伦理 | 21:20 | `audio/ep14.m4a` |
 
-公开音频在 R2：`audio_base_url` + `ep0N….m4a`（见根目录 `podcast.yaml`）。  
-发布用字幕在 `docs/transcripts/`；本目录 `transcripts/` 为源稿（含 json / dialog）。
+公开音频在 R2：`audio_base_url` + 文件名（见 `podcast.yaml`）。  
+发布用字幕在仓库 `docs/transcripts/`；本目录 `transcripts/` 为源稿（含 json / dialog）。
 
 ## 本目录
 
 ```text
+podcast.yaml   # 节目元数据 + 14 集配置
 audio/         # 源音频（默认不进 Git）
 transcripts/   # 字幕与对话稿（转写源）
 shownotes/     # 每集文字介绍（可选）

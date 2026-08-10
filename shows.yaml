@@ -1,0 +1,23 @@
+# 多节目索引：添加新节目只需在此登记，并在 shows/<节目>/ 下放置 podcast.yaml 与素材。
+# 生成：python scripts/generate_all.py
+
+site:
+  title: "读书播客"
+  description: "按书分章节的系列播客。浏览器直接听，也可 RSS 订阅。"
+  base_url: "https://eighthundreds.github.io/Podcast/"
+  language: "zh-CN"
+
+shows:
+  - id: ddia
+    slug: ddia
+    title: "设计数据密集型应用"
+    # 相对仓库根的配置路径
+    config: "shows/设计数据密集型应用/podcast.yaml"
+    # 节目页与 episodes.json 发布目录（相对仓库根）
+    publish_dir: "docs/ddia"
+    # 兼容既有对外 RSS：https://…/Podcast/feed.xml
+    legacy_root_feed: true
+    # 枢纽页展示用摘要（可与节目 metadata.description 不同）
+    blurb: |
+      围绕《Designing Data-Intensive Applications》的读书讨论。
+      架构权衡、数据模型、复制分片、事务与共识，以及数据伦理。

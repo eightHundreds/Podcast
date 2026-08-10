@@ -1,0 +1,23 @@
+{
+  "site": {
+    "title": "读书播客",
+    "description": "按书分章节的系列播客。浏览器直接听，也可 RSS 订阅。",
+    "base_url": "https://eighthundreds.github.io/Podcast/",
+    "language": "zh-CN"
+  },
+  "shows": [
+    {
+      "id": "ddia",
+      "slug": "ddia",
+      "title": "设计数据密集型应用",
+      "blurb": "围绕《Designing Data-Intensive Applications》的读书讨论。\n架构权衡、数据模型、复制分片、事务与共识，以及数据伦理。",
+      "image": "https://eighthundreds.github.io/Podcast/cover.png",
+      "episodeCount": 14,
+      "pageUrl": "https://eighthundreds.github.io/Podcast/ddia/",
+      "pagePath": "ddia/",
+      "feedUrl": "https://eighthundreds.github.io/Podcast/feed.xml",
+      "feedPath": "feed.xml",
+      "link": "https://eighthundreds.github.io/Podcast/ddia/"
+    }
+  ]
+}

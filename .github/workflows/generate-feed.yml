@@ -4,14 +4,17 @@ on:
   push:
     branches: [main, master]
     paths:
-      - "podcast.yaml"
+      - "shows.yaml"
+      - "shows/**"
       - "scripts/**"
       - "docs/**"
       - ".github/workflows/generate-feed.yml"
   pull_request:
     paths:
-      - "podcast.yaml"
+      - "shows.yaml"
+      - "shows/**"
       - "scripts/**"
+      - "docs/assets/**"
   workflow_dispatch:
 
 permissions:
@@ -36,13 +39,17 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        # 站点/feed 生成与单测只需 PyYAML + pytest（转写用 mlx-audio 不进 CI）
+        run: pip install "PyYAML>=6.0.1" "pytest>=8.0.0"
 
-      - name: Validate config
-        run: python scripts/generate_feed.py --dry-run --include-future
+      - name: Validate configs
+        run: python scripts/generate_all.py --dry-run --include-future
 
-      - name: Generate feed.xml
-        run: python scripts/generate_feed.py -i podcast.yaml -o docs/feed.xml --include-future
+      - name: Generate feeds + site pages
+        run: python scripts/generate_all.py --include-future
+
+      - name: Unit tests
+        run: python -m pytest tests/ -q
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

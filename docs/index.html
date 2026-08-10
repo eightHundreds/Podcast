@@ -3,97 +3,118 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>设计数据密集型应用</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #0f1115;
-      --fg: #e8eaed;
-      --muted: #9aa0a6;
-      --card: #1a1d24;
-      --accent: #8ab4f8;
-      --border: #2a2f3a;
-    }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f6f7f9;
-        --fg: #202124;
-        --muted: #5f6368;
-        --card: #fff;
-        --accent: #1a73e8;
-        --border: #e0e3e8;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .card {
-      max-width: 36rem;
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,.12);
-    }
-    h1 { margin: 0 0 .5rem; font-size: 1.75rem; letter-spacing: -.02em; }
-    p { margin: 0 0 1rem; color: var(--muted); }
-    code, .feed {
-      display: block;
-      word-break: break-all;
-      background: color-mix(in srgb, var(--fg) 6%, transparent);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: .75rem 1rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: .9rem;
-      color: var(--fg);
-      margin: 1rem 0 1.25rem;
-    }
-    a { color: var(--accent); text-underline-offset: 2px; }
-    ul { margin: 0; padding-left: 1.2rem; color: var(--muted); }
-    li { margin: .35rem 0; }
-    .badge {
-      display: inline-block;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-      border-radius: 999px;
-      padding: .2rem .6rem;
-      margin-bottom: 1rem;
-    }
-  </style>
+  <title>读书播客</title>
+  <meta name="description" content="按书分章节的系列播客。浏览器直接听，也可 RSS 订阅。" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-  <main class="card">
-    <div class="badge">DDIA · 14 集</div>
-    <h1>设计数据密集型应用</h1>
-    <p>围绕《Designing Data-Intensive Applications》的读书讨论播客。GitHub Pages 托管介绍页与 RSS，音频在 Cloudflare R2。</p>
-    <p><strong>RSS Feed</strong>（Apple Podcasts / Spotify / 小宇宙 / AntennaPod）：</p>
-    <a class="feed" id="feed-link" href="./feed.xml">./feed.xml</a>
-    <ul>
-      <li>分集列表与字幕见仓库 <code style="display:inline;padding:.1rem .35rem">README.md</code></li>
-      <li>转写字幕：菜单中的「Show transcript」（非内嵌卡拉 OK）</li>
-      <li>维护：改 <code style="display:inline;padding:.1rem .35rem">podcast.yaml</code> 后 push，Actions 发布 Feed</li>
-    </ul>
+<body class="hub">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <span class="brand-name">读书播客</span>
+        <span class="brand-tag">按书分章节</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="./" aria-current="page">首页</a>
+        <a href="./#series">节目</a>
+        
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hub-hero">
+      <div class="wrap">
+        <p class="hub-kicker">Audio journal</p>
+        <h1>读书播客</h1>
+        <p class="deck">按书分章节的系列播客。浏览器直接听，也可 RSS 订阅。</p>
+        <div class="hub-meta-row">
+          <span><strong>1</strong> 个系列</span>
+          <span><strong>14</strong> 篇文章 / 分集</span>
+          <span>在线播放 · RSS 订阅</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="series" aria-label="节目">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>系列</h2>
+          <p class="section-note">每本书一个栏目，按章节推进</p>
+        </div>
+        
+        <a class="series-card" href="ddia/">
+          <img class="series-cover" src="https://eighthundreds.github.io/Podcast/cover.png" alt="" width="280" height="280" />
+          <div class="series-body">
+            <p class="series-label">系列 · 14 集</p>
+            <h3>设计数据密集型应用</h3>
+            <p class="blurb">围绕《Designing Data-Intensive Applications》的读书讨论。 架构权衡、数据模型、复制分片、事务与共识，以及数据伦理。</p>
+            <div class="series-actions">
+              <span class="btn btn-primary">阅读并收听</span>
+              <span class="btn btn-secondary">进入节目</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-label="关于">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>如何使用</h2>
+          <p class="section-note">像读博客一样听</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>在线阅读 + 播放</h3>
+            <p>进入系列页，左侧是当前分集正文与播放器，右侧是分集列表。进度会记在本机浏览器。</p>
+          </div>
+          <div class="about-card">
+            <h3>字幕与转写</h3>
+            <p>可打开同步字幕跟随播放；也可一键复制全文转写，方便做笔记或二次引用。</p>
+          </div>
+          <div class="about-card">
+            <h3>RSS 订阅</h3>
+            <p>每个系列提供 Feed。可加入 Apple Podcasts、Spotify、小宇宙、AntennaPod 等客户端。</p>
+          </div>
+          <div class="about-card">
+            <h3>按书分章节</h3>
+            <p>不是杂谈合集，而是围绕一本书的连续讨论。适合边读书边听，或当作章节导读。</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <script>
-    const a = document.getElementById("feed-link");
-    a.textContent = new URL("feed.xml", location.href).href;
-    a.href = "feed.xml";
-  </script>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <p class="footer-brand">读书播客</p>
+          <p class="footer-copy">围绕一本书做系列讨论。在浏览器里直接听，也可以用 RSS 订阅到任意播客客户端。</p>
+        </div>
+        <div class="footer-col">
+          <h4>浏览</h4>
+          <ul>
+            <li><a href="./">首页</a></li>
+            <li><a href="./#series">全部节目</a></li>
+            
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>收听</h4>
+          <ul>
+            <li>在线播放与字幕</li>
+            <li>倍速 · 进度记忆</li>
+            <li>复制全文转写</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>源码与配置见仓库 README</span>
+        <span>GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
