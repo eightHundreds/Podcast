@@ -51,8 +51,28 @@ def stem_from_audio(path: Path) -> str:
     return m.group(1).lower() if m else path.stem
 
 
+_SPEAKER_PREFIX_RE = re.compile(r"^\[(S\d+)\]\s*", re.I)
+# 合并后可能残留的句中说话人标签（正文里不应再出现）
+_INLINE_SPEAKER_RE = re.compile(r"\s*\[(S\d+)\]\s*", re.I)
+
+
+def _strip_speaker_labels(text: str, speaker: str | None = None) -> tuple[str, str | None]:
+    """去掉正文里的 [S01] 标签；若尚未知道 speaker 则从首个标签推断。"""
+    body = (text or "").strip()
+    if not body:
+        return "", speaker
+    m = _SPEAKER_PREFIX_RE.match(body)
+    if m:
+        if not speaker:
+            speaker = m.group(1).upper()
+        body = body[m.end() :].strip()
+    # 去掉误嵌在正文中的其它 [Sxx]
+    body = _INLINE_SPEAKER_RE.sub("", body).strip()
+    return body, speaker
+
+
 def normalize_segments(raw_segments: list | None, full_text: str) -> list[dict]:
-    """统一成 {start, end, text, speaker}。"""
+    """统一成 {start, end, text, speaker}；text 不含 [Sxx] 前缀。"""
     out: list[dict] = []
     if raw_segments:
         for seg in raw_segments:
@@ -62,11 +82,11 @@ def normalize_segments(raw_segments: list | None, full_text: str) -> list[dict]:
             if not text:
                 continue
             speaker = seg.get("speaker_id") or seg.get("speaker")
-            if not speaker:
-                m = re.match(r"\[(S\d+)\]\s*(.*)", text, re.I)
-                if m:
-                    speaker = m.group(1).upper()
-                    text = m.group(2).strip() or text
+            if isinstance(speaker, str):
+                speaker = speaker.upper()
+            text, speaker = _strip_speaker_labels(text, speaker)
+            if not text:
+                continue
             out.append(
                 {
                     "start": float(seg.get("start") or 0),
@@ -85,7 +105,9 @@ def normalize_segments(raw_segments: list | None, full_text: str) -> list[dict]:
         re.DOTALL | re.IGNORECASE,
     )
     for m in pattern.finditer(full_text or ""):
-        body = m.group("text").strip()
+        body, speaker = _strip_speaker_labels(
+            m.group("text"), m.group("speaker").upper()
+        )
         if not body:
             continue
         out.append(
@@ -93,7 +115,7 @@ def normalize_segments(raw_segments: list | None, full_text: str) -> list[dict]:
                 "start": float(m.group("start")),
                 "end": float(m.group("end")),
                 "text": body,
-                "speaker": m.group("speaker").upper(),
+                "speaker": speaker,
             }
         )
     return out
@@ -108,6 +130,77 @@ def cue_text(seg: dict) -> str:
             return body
         return f"[{sp}] {body}"
     return body
+
+
+def _join_cue_text(left: str, right: str) -> str:
+    """拼接两段字幕正文：中文直接连；两端都是拉丁词时补空格。"""
+    if not left:
+        return right
+    if not right:
+        return left
+    if re.search(r"[A-Za-z0-9]$", left) and re.search(r"^[A-Za-z0-9]", right):
+        return f"{left} {right}"
+    return left + right
+
+
+def merge_same_speaker_segments(
+    segments: list[dict],
+    *,
+    max_gap: float = 1.0,
+) -> list[dict]:
+    """把同一说话人、间隔很小的连续片段合并成一条字幕。
+
+    ASR 常把一句完整话切成很多短 cue；播放时同人连说应显示为一条。
+    max_gap：上一段 end 到下一段 start 的最大允许间隔（秒）。
+    """
+    if not segments:
+        return []
+
+    merged: list[dict] = []
+    cur = {
+        "start": float(segments[0].get("start") or 0),
+        "end": float(segments[0].get("end") or 0),
+        "text": (segments[0].get("text") or "").strip(),
+        "speaker": segments[0].get("speaker"),
+    }
+
+    for seg in segments[1:]:
+        text = (seg.get("text") or "").strip()
+        if not text:
+            continue
+        start = float(seg.get("start") or 0)
+        end = float(seg.get("end") or 0)
+        speaker = seg.get("speaker")
+        gap = start - float(cur["end"])
+        same = (
+            speaker is not None
+            and cur.get("speaker") is not None
+            and speaker == cur.get("speaker")
+        )
+        if same and gap <= max_gap and cur.get("text"):
+            cur["end"] = max(float(cur["end"]), end)
+            cur["text"] = _join_cue_text(cur["text"], text)
+            continue
+        if cur.get("text"):
+            merged.append(cur)
+        cur = {
+            "start": start,
+            "end": end,
+            "text": text,
+            "speaker": speaker,
+        }
+
+    if cur.get("text"):
+        merged.append(cur)
+    return merged
+
+
+def write_caption_outputs(segments: list[dict], out_dir: Path, stem: str) -> None:
+    """写出发布用 vtt/srt/txt 与源稿 dialog。"""
+    write_vtt(segments, out_dir / f"{stem}.vtt")
+    write_srt(segments, out_dir / f"{stem}.srt")
+    write_txt(segments, out_dir / f"{stem}.txt")
+    write_dialog(segments, out_dir / f"{stem}.dialog.txt")
 
 
 def write_vtt(segments: list[dict], path: Path) -> None:
@@ -157,6 +250,37 @@ def write_dialog(segments: list[dict], path: Path) -> None:
     path.write_text("\n\n".join(blocks) + ("\n" if blocks else ""), encoding="utf-8")
 
 
+def remerge_from_json(
+    json_path: Path,
+    *,
+    max_gap: float = 1.0,
+    out_dir: Path | None = None,
+) -> list[dict]:
+    """从已有转写 json 重新合并同说话人片段，并重写 vtt/srt/txt/dialog。
+
+    json 内保留 raw_segments（未合并）与 segments（合并后，用于字幕）。
+    """
+    data = json.loads(json_path.read_text(encoding="utf-8"))
+    # 优先用未合并源；兼容旧文件（只有已切碎的 segments）
+    raw = data.get("raw_segments") or data.get("segments") or []
+    raw = normalize_segments(raw, data.get("text") or "")
+    merged = merge_same_speaker_segments(raw, max_gap=max_gap)
+
+    stem = json_path.stem
+    dest = out_dir or json_path.parent
+    dest.mkdir(parents=True, exist_ok=True)
+    write_caption_outputs(merged, dest, stem)
+
+    data["raw_segments"] = raw
+    data["segments"] = merged
+    data["merge_max_gap"] = max_gap
+    json_path.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return merged
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="mlx-audio + MOSS-Transcribe-Diarize 转写（带说话人）"
@@ -186,7 +310,58 @@ def main() -> None:
         action="store_true",
         help="打印推理详情",
     )
+    parser.add_argument(
+        "--max-gap",
+        type=float,
+        default=1.0,
+        help="同说话人连续片段合并的最大间隔秒数（默认 1.0）",
+    )
+    parser.add_argument(
+        "--remerge",
+        nargs="*",
+        type=Path,
+        default=None,
+        help="不跑模型：从已有 json 合并同说话人并重写字幕。"
+        "可传 json 文件或目录；省略参数时处理 shows/*/transcripts/*.json",
+    )
     args = parser.parse_args()
+
+    # 仅重合并模式（不加载模型）
+    if args.remerge is not None:
+        paths: list[Path] = []
+        if not args.remerge:
+            root = Path("shows")
+            paths = sorted(root.glob("*/transcripts/ep*.json")) if root.is_dir() else []
+        else:
+            for p in args.remerge:
+                if p.is_dir():
+                    paths.extend(sorted(p.glob("ep*.json")))
+                    paths.extend(sorted(p.glob("*.json")))
+                elif p.is_file():
+                    paths.append(p)
+            # 去重并保持顺序
+            seen: set[Path] = set()
+            uniq: list[Path] = []
+            for p in paths:
+                rp = p.resolve()
+                if rp not in seen:
+                    seen.add(rp)
+                    uniq.append(p)
+            paths = uniq
+
+        if not paths:
+            print("未找到可 remerge 的 json。", file=sys.stderr)
+            sys.exit(1)
+
+        for jp in paths:
+            data0 = json.loads(jp.read_text(encoding="utf-8"))
+            before = len(data0.get("raw_segments") or data0.get("segments") or [])
+            merged = remerge_from_json(jp, max_gap=args.max_gap, out_dir=args.out_dir)
+            print(
+                f"  ✓ {jp}: {before} → {len(merged)} 段 (max_gap={args.max_gap})",
+                flush=True,
+            )
+        return
 
     inputs = list(args.inputs)
     if not inputs:
@@ -234,12 +409,10 @@ def main() -> None:
         )
 
         full_text = getattr(result, "text", "") or ""
-        segments = normalize_segments(getattr(result, "segments", None), full_text)
+        raw_segments = normalize_segments(getattr(result, "segments", None), full_text)
+        segments = merge_same_speaker_segments(raw_segments, max_gap=args.max_gap)
 
-        write_vtt(segments, out_dir / f"{stem}.vtt")
-        write_srt(segments, out_dir / f"{stem}.srt")
-        write_txt(segments, out_dir / f"{stem}.txt")
-        write_dialog(segments, out_dir / f"{stem}.dialog.txt")
+        write_caption_outputs(segments, out_dir, stem)
         (out_dir / f"{stem}.raw.txt").write_text(
             full_text + ("\n" if full_text else ""), encoding="utf-8"
         )
@@ -249,7 +422,9 @@ def main() -> None:
                     "model": args.model,
                     "audio": str(audio),
                     "text": full_text,
+                    "raw_segments": raw_segments,
                     "segments": segments,
+                    "merge_max_gap": args.max_gap,
                     "prompt_tokens": getattr(result, "prompt_tokens", None),
                     "generation_tokens": getattr(result, "generation_tokens", None),
                     "total_time": getattr(result, "total_time", None),
@@ -263,7 +438,8 @@ def main() -> None:
 
         speakers = sorted({s["speaker"] for s in segments if s.get("speaker")})
         print(
-            f"  ✓ {stem}: {len(segments)} 段, 说话人={speakers or ['(未解析到)']}",
+            f"  ✓ {stem}: {len(raw_segments)} 原始段 → {len(segments)} 合并段, "
+            f"说话人={speakers or ['(未解析到)']}",
             flush=True,
         )
         print(f"    → {out_dir / (stem + '.vtt')}", flush=True)
