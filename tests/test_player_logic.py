@@ -14,13 +14,19 @@ sys.path.insert(0, str(SCRIPTS))
 from podcast_core.config import load_config, load_shows_index, validate_config
 from podcast_core.feed import build_feed, resolve_audio_url
 from podcast_core.player_logic import (
+    AUDIO_CACHE_META_HEADER,
+    AUDIO_CACHE_TTL_MS,
+    audio_cache_decision,
+    cached_at_from_headers,
     clamp_seek,
     cue_at,
     cue_index_at,
     cue_seek_target,
+    expired_audio_cache_urls,
     format_cue_line,
     format_full_transcript,
     format_time,
+    is_audio_cache_fresh,
     parse_duration,
     parse_vtt,
     progress_key,
@@ -55,6 +61,40 @@ class TestTimeAndSeek:
         assert set_playback_rate(1.4) == 1.5
         assert set_playback_rate(2.0) == 2.0
         assert set_playback_rate(0.1) == 0.75
+
+
+class TestAudioCacheTtl:
+    def test_default_ttl_is_seven_days(self):
+        assert AUDIO_CACHE_TTL_MS == 7 * 24 * 60 * 60 * 1000
+
+    def test_fresh_within_ttl(self):
+        now = 1_000_000_000
+        assert is_audio_cache_fresh(now, now)
+        assert is_audio_cache_fresh(now, now + AUDIO_CACHE_TTL_MS)
+        assert not is_audio_cache_fresh(now, now + AUDIO_CACHE_TTL_MS + 1)
+        assert not is_audio_cache_fresh(now + 10, now)  # future timestamp
+        assert not is_audio_cache_fresh(None, now)
+        assert not is_audio_cache_fresh("nope", now)
+
+    def test_decision_and_prune(self):
+        now = 50_000
+        assert audio_cache_decision(None, now) == "miss"
+        assert audio_cache_decision(now, now) == "fresh"
+        assert audio_cache_decision(0, now + AUDIO_CACHE_TTL_MS + 5) == "expired"
+        assert expired_audio_cache_urls(
+            [
+                {"url": "a", "cachedAt": now},
+                {"url": "b", "cachedAt": now - AUDIO_CACHE_TTL_MS - 1},
+                {"url": "c"},
+                {"cachedAt": now},
+            ],
+            now,
+        ) == ["b", "c"]
+
+    def test_cached_at_header(self):
+        assert cached_at_from_headers({AUDIO_CACHE_META_HEADER: "123"}) == 123
+        assert cached_at_from_headers({}) is None
+        assert cached_at_from_headers(None) is None
 
 
 class TestVtt:

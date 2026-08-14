@@ -62,6 +62,47 @@
     return "podcast:progress:" + showId + ":" + episodeId;
   }
 
+  // Cache Storage holds the audio blob; TTL metadata lives on the Response.
+  var AUDIO_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+  var AUDIO_CACHE_NAME = "podcast-audio-v1";
+  var AUDIO_CACHE_META_HEADER = "X-Podcast-Cached-At";
+
+  function isAudioCacheFresh(cachedAt, now, ttlMs) {
+    if (cachedAt == null || cachedAt === "") return false;
+    var t = Number(cachedAt);
+    var n = now == null ? Date.now() : Number(now);
+    var ttl = ttlMs == null ? AUDIO_CACHE_TTL_MS : Number(ttlMs);
+    if (!isFinite(t) || !isFinite(n) || !isFinite(ttl) || ttl < 0) return false;
+    var age = n - t;
+    return age >= 0 && age <= ttl;
+  }
+
+  function cachedAtFromHeaders(headers) {
+    if (!headers || typeof headers.get !== "function") return null;
+    var raw = headers.get(AUDIO_CACHE_META_HEADER);
+    if (raw == null || raw === "") return null;
+    var n = Number(raw);
+    return isFinite(n) ? n : null;
+  }
+
+  function audioCacheDecision(cachedAt, now, ttlMs) {
+    if (cachedAt == null || cachedAt === "") return "miss";
+    return isAudioCacheFresh(cachedAt, now, ttlMs) ? "fresh" : "expired";
+  }
+
+  function expiredAudioCacheUrls(entries, now, ttlMs) {
+    var out = [];
+    if (!entries || !entries.length) return out;
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      if (!entry || !entry.url) continue;
+      if (audioCacheDecision(entry.cachedAt, now, ttlMs) !== "fresh") {
+        out.push(entry.url);
+      }
+    }
+    return out;
+  }
+
   function parseTs(ts) {
     ts = String(ts).trim();
     var m = ts.match(/^(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,3}))?$/);
@@ -216,6 +257,13 @@
     cueSeekTarget: cueSeekTarget,
     formatCueLine: formatCueLine,
     formatFullTranscript: formatFullTranscript,
+    AUDIO_CACHE_TTL_MS: AUDIO_CACHE_TTL_MS,
+    AUDIO_CACHE_NAME: AUDIO_CACHE_NAME,
+    AUDIO_CACHE_META_HEADER: AUDIO_CACHE_META_HEADER,
+    isAudioCacheFresh: isAudioCacheFresh,
+    cachedAtFromHeaders: cachedAtFromHeaders,
+    audioCacheDecision: audioCacheDecision,
+    expiredAudioCacheUrls: expiredAudioCacheUrls,
   };
 
   if (typeof module !== "undefined" && module.exports) {

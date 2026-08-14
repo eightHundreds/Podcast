@@ -36,6 +36,10 @@ def test_hub_and_show_pages_exist():
     assert "formatFullTranscript" in (DOCS / "assets" / "player-core.js").read_text(
         encoding="utf-8"
     )
+    player = (DOCS / "assets" / "player.js").read_text(encoding="utf-8")
+    assert "populateAudioCache" in player
+    assert "resolveCachedAudioBlobUrl" in player
+    assert "caches.open" in player
 
 
 def test_episodes_json_has_audio():

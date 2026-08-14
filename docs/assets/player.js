@@ -54,6 +54,125 @@
     } catch (e) {}
   }
 
+  function hasCacheStorage() {
+    return typeof caches !== "undefined" && !!caches && typeof caches.open === "function";
+  }
+
+  function openAudioCache() {
+    return caches.open(Core.AUDIO_CACHE_NAME);
+  }
+
+  function matchFreshCachedAudio(url) {
+    if (!hasCacheStorage() || !url) return Promise.resolve(null);
+    return openAudioCache()
+      .then(function (cache) {
+        return cache.match(url).then(function (res) {
+          if (!res) return null;
+          var cachedAt = Core.cachedAtFromHeaders(res.headers);
+          if (!Core.isAudioCacheFresh(cachedAt)) {
+            return cache.delete(url).then(function () {
+              return null;
+            });
+          }
+          return res;
+        });
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  function pruneExpiredAudioCache(cache) {
+    return cache
+      .keys()
+      .then(function (reqs) {
+        return Promise.all(
+          reqs.map(function (req) {
+            return cache.match(req).then(function (res) {
+              if (!res) return;
+              if (!Core.isAudioCacheFresh(Core.cachedAtFromHeaders(res.headers))) {
+                return cache.delete(req);
+              }
+            });
+          })
+        );
+      })
+      .catch(function () {});
+  }
+
+  function stampAudioResponse(res, cachedAt) {
+    return res.arrayBuffer().then(function (buf) {
+      var headers = new Headers();
+      if (res.headers && typeof res.headers.forEach === "function") {
+        res.headers.forEach(function (value, key) {
+          headers.set(key, value);
+        });
+      }
+      headers.delete("content-encoding");
+      headers.set("Content-Type", (res.headers && res.headers.get("Content-Type")) || "audio/mp4");
+      headers.set("Content-Length", String(buf.byteLength));
+      headers.set(Core.AUDIO_CACHE_META_HEADER, String(cachedAt));
+      return new Response(buf, { status: 200, statusText: "OK", headers: headers });
+    });
+  }
+
+  var audioCacheInflight = Object.create(null);
+
+  function populateAudioCache(url) {
+    if (!hasCacheStorage() || !url) return Promise.resolve(false);
+    if (audioCacheInflight[url]) return audioCacheInflight[url];
+    audioCacheInflight[url] = matchFreshCachedAudio(url)
+      .then(function (hit) {
+        if (hit) return true;
+        return fetch(url, {
+          mode: "cors",
+          credentials: "omit",
+          cache: "force-cache",
+        }).then(function (res) {
+          if (!res.ok) return false;
+          return stampAudioResponse(res, Date.now()).then(function (stored) {
+            return openAudioCache().then(function (cache) {
+              return cache
+                .put(url, stored)
+                .catch(function () {
+                  return pruneExpiredAudioCache(cache).then(function () {
+                    return cache.put(url, stored);
+                  });
+                })
+                .then(function () {
+                  return pruneExpiredAudioCache(cache);
+                })
+                .then(function () {
+                  return true;
+                });
+            });
+          });
+        });
+      })
+      .catch(function () {
+        return false;
+      })
+      .then(function (ok) {
+        delete audioCacheInflight[url];
+        return !!ok;
+      });
+    return audioCacheInflight[url];
+  }
+
+  function resolveCachedAudioBlobUrl(url) {
+    if (!url) return Promise.resolve(null);
+    return matchFreshCachedAudio(url)
+      .then(function (res) {
+        if (!res) return null;
+        return res.blob().then(function (blob) {
+          return URL.createObjectURL(blob);
+        });
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
   function mount(dataEl) {
     var data;
     try {
@@ -97,6 +216,18 @@
     var syncOn = loadSyncPref();
     var userScrollingTranscript = false;
     var scrollUnlockTimer = null;
+    var loadGen = 0;
+    var sourceTokenReady = 0;
+    var playWhenReady = false;
+    var audioObjectUrl = null;
+
+    function revokeAudioObjectUrl() {
+      if (!audioObjectUrl) return;
+      try {
+        URL.revokeObjectURL(audioObjectUrl);
+      } catch (e) {}
+      audioObjectUrl = null;
+    }
 
     function ensurePlayIcons() {
       if (!btnPlay || btnPlay.querySelector(".icon-stack")) return;
@@ -326,6 +457,44 @@
       });
     }
 
+    function attachCaptionTrack(ep) {
+      while (audio.firstChild) audio.removeChild(audio.firstChild);
+      if (!ep.transcriptUrl) return;
+      var track = document.createElement("track");
+      track.kind = "captions";
+      track.label = "中文";
+      track.srclang = "zh";
+      track.src = ep.transcriptUrl;
+      track.default = !!syncOn;
+      audio.appendChild(track);
+    }
+
+    function bindResumeAndAutoplay(autoplay, saved) {
+      var onMeta = function () {
+        audio.removeEventListener("loadedmetadata", onMeta);
+        var dur = audio.duration;
+        if (saved != null && dur && saved < dur - 5 && saved > 2) {
+          audio.currentTime = Core.clampSeek(saved, dur);
+        }
+        updateTimeUi();
+        if (autoplay) {
+          audio.play().catch(function () {});
+        }
+      };
+      if (audio.readyState >= 1) onMeta();
+      else audio.addEventListener("loadedmetadata", onMeta);
+    }
+
+    function applyAudioSource(src, ep, token, autoplay, saved) {
+      if (token !== loadGen) return;
+      audio.src = src || "";
+      attachCaptionTrack(ep);
+      audio.load();
+      sourceTokenReady = token;
+      bindResumeAndAutoplay(autoplay || playWhenReady, saved);
+      playWhenReady = false;
+    }
+
     function localTranscriptFallback(url) {
       // Map Pages absolute URL to relative path for local static server.
       // e.g. .../Podcast/transcripts/ep01.vtt -> ../transcripts/ep01.vtt
@@ -375,19 +544,6 @@
       try {
         document.title = ep.title + " · " + (show.title || "播客");
       } catch (e) {}
-      audio.src = ep.audioUrl || "";
-      // Native WebVTT track (best-effort; also drives nothing UI-wise but helps a11y)
-      while (audio.firstChild) audio.removeChild(audio.firstChild);
-      if (ep.transcriptUrl) {
-        var track = document.createElement("track");
-        track.kind = "captions";
-        track.label = "中文";
-        track.srclang = "zh";
-        track.src = ep.transcriptUrl;
-        track.default = !!syncOn;
-        audio.appendChild(track);
-      }
-      audio.load();
       highlightList();
       cues = [];
       cueList.innerHTML = "";
@@ -403,19 +559,21 @@
         }
       }
       var saved = loadProgress(showId, ep.id);
-      var onMeta = function () {
-        audio.removeEventListener("loadedmetadata", onMeta);
-        var dur = audio.duration;
-        if (saved != null && dur && saved < dur - 5 && saved > 2) {
-          audio.currentTime = Core.clampSeek(saved, dur);
+      var token = ++loadGen;
+      var remote = ep.audioUrl || "";
+      revokeAudioObjectUrl();
+      resolveCachedAudioBlobUrl(remote).then(function (blobUrl) {
+        if (token !== loadGen) {
+          if (blobUrl) {
+            try {
+              URL.revokeObjectURL(blobUrl);
+            } catch (e) {}
+          }
+          return;
         }
-        updateTimeUi();
-        if (autoplay) {
-          audio.play().catch(function () {});
-        }
-      };
-      if (audio.readyState >= 1) onMeta();
-      else audio.addEventListener("loadedmetadata", onMeta);
+        if (blobUrl) audioObjectUrl = blobUrl;
+        applyAudioSource(blobUrl || remote, ep, token, autoplay, saved);
+      });
       updatePlayBtn();
     }
 
@@ -601,6 +759,10 @@
         if (episodes.length) selectEpisode(0, true);
         return;
       }
+      if (sourceTokenReady !== loadGen) {
+        playWhenReady = audio.paused;
+        return;
+      }
       if (audio.paused) audio.play().catch(function () {});
       else audio.pause();
     });
@@ -643,7 +805,10 @@
       updateTimeUi();
     }
 
-    audio.addEventListener("play", updatePlayBtn);
+    audio.addEventListener("play", function () {
+      updatePlayBtn();
+      if (current && current.audioUrl) populateAudioCache(current.audioUrl);
+    });
     audio.addEventListener("pause", updatePlayBtn);
     audio.addEventListener("timeupdate", function () {
       updateTimeUi();
@@ -708,6 +873,9 @@
 
     applySyncUi();
     renderList();
+    if (hasCacheStorage()) {
+      openAudioCache().then(pruneExpiredAudioCache).catch(function () {});
+    }
     if (episodes.length) {
       selectEpisode(0, false);
     }

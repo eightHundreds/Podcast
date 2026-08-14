@@ -114,9 +114,47 @@ def test_js_format_full_transcript(node_bin):
     assert "S02: world" in data
 
 
+def test_js_audio_cache_ttl(node_bin):
+    out = run_core(
+        node_bin,
+        """
+(() => {
+  const now = 1e9;
+  const ttl = core.AUDIO_CACHE_TTL_MS;
+  const headers = { get: (k) => (k === core.AUDIO_CACHE_META_HEADER ? String(now) : null) };
+  return {
+    ttl,
+    name: core.AUDIO_CACHE_NAME,
+    fresh: core.isAudioCacheFresh(now, now),
+    edge: core.isAudioCacheFresh(now, now + ttl),
+    expired: core.isAudioCacheFresh(now, now + ttl + 1),
+    miss: core.audioCacheDecision(null, now),
+    decision: core.audioCacheDecision(now, now + ttl + 1),
+    cachedAt: core.cachedAtFromHeaders(headers),
+    evict: core.expiredAudioCacheUrls([
+      { url: 'a', cachedAt: now },
+      { url: 'b', cachedAt: now - ttl - 1 },
+    ], now),
+  };
+})()
+""",
+    )
+    data = json.loads(out)
+    assert data["ttl"] == 7 * 24 * 60 * 60 * 1000
+    assert data["name"] == "podcast-audio-v1"
+    assert data["fresh"] is True
+    assert data["edge"] is True
+    assert data["expired"] is False
+    assert data["miss"] == "miss"
+    assert data["decision"] == "expired"
+    assert data["cachedAt"] == 1e9
+    assert data["evict"] == ["b"]
+
+
 def test_player_core_file_exists():
     assert CORE_JS.is_file()
     text = CORE_JS.read_text(encoding="utf-8")
     assert "clampSeek" in text
     assert "parseVtt" in text
     assert "setPlaybackRate" in text
+    assert "isAudioCacheFresh" in text
